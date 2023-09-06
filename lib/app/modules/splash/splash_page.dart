@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vakinha_burger_mobile/app/core/ui/widgets/vakinha_textformfield.dart';
     
 class SplashPage extends StatelessWidget {
 
@@ -10,7 +11,9 @@ class SplashPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Splash'),
       ),
-      body: Container(),
+      body: Container(
+        child: VakinhaTextformfield(label: 'TextForm'),
+      ),
     );
   }
 }
