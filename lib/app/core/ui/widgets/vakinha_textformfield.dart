@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/utils.dart';
 
 class VakinhaTextformfield extends StatelessWidget {
   const VakinhaTextformfield({
@@ -18,8 +19,31 @@ class VakinhaTextformfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: TextFormField(),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        controller: controller,
+        obscureText: true,
+        validator: validator,
+        onChanged: onChange,
+        cursorColor: context.theme.primaryColor,
+        decoration: InputDecoration(
+          isDense: true,
+          labelText: label,
+          labelStyle: const TextStyle(color: Colors.black),
+          errorStyle: const TextStyle(color: Colors.redAccent),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(23),
+            borderSide: BorderSide(color: Colors.grey[400]!),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(23),
+            borderSide: BorderSide(color: Colors.grey[400]!),
+          ),
+          filled: true,
+          fillColor: Colors.white,
+        ),
+      ),
     );
   }
 }
