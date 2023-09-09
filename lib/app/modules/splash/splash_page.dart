@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/utils.dart';
 import 'package:vakinha_burger_mobile/app/core/ui/widgets/vakinha_button.dart';
-import 'package:vakinha_burger_mobile/app/core/ui/widgets/vakinha_textformfield.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -8,19 +9,42 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Splash'),
-      ),
-      body:  Column(
-        children: [
-          const SizedBox(height: 20),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: VakinhaTextformfield(label: 'TextForm'),
-          ),
-          const SizedBox(height: 20),
-          VakinhaButton(onPressed: (){}, label: 'Entrar'),
-        ],
+      body: Container(
+        color: const Color(0x0ff140e0),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                width: context.width,
+                child: Image.asset(
+                  'assets/images/lanche.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: context.heightTransformer(reducedBy: 85),
+                  ),
+                  Image.asset('assets/images/logo.png'),
+                  const SizedBox(height: 60),
+                  VakinhaButton(
+                    onPressed: () {
+                      Get.toNamed('/auth/login');
+                    },
+                    label: 'ACESSAR',
+                    width: context.widthTransformer(reducedBy: 40),
+                    height: 35,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
